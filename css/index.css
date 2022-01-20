@@ -1,0 +1,142 @@
+.header {
+   background-image: url('../assets/suggestions/mobile/background-header.png');
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0.8rem 1.5rem;
+   height: 5rem;
+   position: relative;
+}
+
+.header-logo-title,
+.header-logo-subtitle {
+   margin: 0;
+}
+
+.header-logo-title {
+   color: var(--white);
+}
+
+.header-logo-subtitle {
+   color: var(--white-smoke);
+}
+
+.header-menu {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.header-menu i {
+   color: var(--white);
+   cursor: pointer;
+}
+
+.sidebar {
+   position: absolute;
+   background-color: var(--white-light-smoke);
+   width: 75vw;
+   height: calc(100vh - 5rem);
+   right: -75vw;
+   top: 5rem;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   flex-direction: column;
+   gap: 2rem;
+   padding: 2rem;
+}
+
+.slide {
+   right: 0;
+}
+
+.card {
+   background-color: var(--white);
+   padding: 1.2rem 1.5rem;
+   border-radius: 1rem;
+}
+
+.sidebar-categories {
+   display: flex;
+   gap: 0.8rem;
+   flex-wrap: wrap;
+}
+
+.category-btn {
+   color: var(--blue);
+   background-color: var(--white-smoke);
+}
+
+#active-category {
+   color: var(--white);
+   background-color: var(--blue);
+}
+
+.roadmap {
+   width: 100%;
+}
+
+.roadmap-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.roadmap-header-title {
+   color: var(--dark-light-blue);
+}
+
+.roadmap-header-link {
+   color: var(--blue);
+   font-weight: bolder;
+}
+
+.roadmap-status-list {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+.roadmap-status {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin: 1rem 0;
+}
+
+.roadmap-status > span {
+   color: var(--blue-grey);
+   font-weight: bold;
+}
+
+.roadmap-status div {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.roadmap-status div span {
+   color: var(--blue-grey);
+}
+
+.bullet {
+   width: 12px;
+   height: 12px;
+   margin: 0 1rem 0 0.2rem;
+   border-radius: 50%;
+}
+
+.bullet-orange {
+   background-color: var(--orange);
+}
+
+.bullet-purple {
+   background-color: var(--purple);
+}
+
+.bullet-blue {
+   background-color: var(--light-blue);
+}
