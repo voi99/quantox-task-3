@@ -11,6 +11,7 @@
    --blue-grey: #647196;
    --orange: #f49f85;
    --light-blue: #62bcfa;
+   --blue-grey-transparent: #64719685;
 }
 
 * {
@@ -27,6 +28,7 @@ body {
    margin: 0;
    overflow-x: hidden;
    height: 100%;
+   background-color: var(--white-light-smoke);
 }
 
 h1 {
@@ -56,7 +58,7 @@ h4 {
 .btn {
    font-family: inherit;
    border: none;
-   border-radius: 0.5rem;
+   border-radius: 0.6rem;
    padding: 0.5rem 1rem;
    font-weight: bold;
 }

@@ -21,7 +21,8 @@
          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
       />
       <script src="src/Animate.js" defer type="module"></script>
-      <script src="src/header.js" defer type="module"></script>
+      <script src="src/Header.js" defer type="module"></script>
+      <script src="src/Dropdown.js" defer type="module"></script>
 
       <title>Frontend Mentor | Product feedback app</title>
    </head>
@@ -78,21 +79,36 @@
             </div>
          </div>
       </header>
+      <section class="sorting-section">
+         <div class="custom-select-wrapper">
+            <label for="custom-select">Sort By :</label>
+            <div class="custom-select">
+               <div class="selected-sorting">Most Upvotes</div>
+               <div class="arrow-sorting">
+                  <i class="fas fa-angle-down fa-sm"></i>
+               </div>
+            </div>
+            <div class="custom-select-dropdown hide">
+               <div class="custom-select-dropdown-option">Most Upvotes</div>
+               <div class="custom-select-dropdown-option">Least Upvotes</div>
+               <div class="custom-select-dropdown-option">Most Comments</div>
+               <div class="custom-select-dropdown-option">Least Comments</div>
+            </div>
+         </div>
+         <button class="btn btn-add-feedback">+ Add Feedback</button>
+      </section>
 
-      <!-- Sidebar -->
-      All UI UX Enhancement Bug Feature Roadmap View Planned
-      <!-- Add number here -->
-      In-Progress
-      <!-- Add number here -->
-      Live
-      <!-- Add number here -->
-
-      <!-- Sidebar end -->
-
-      <!-- Add number of suggestions here -->
-      Suggestions Sort by: Most upvotes Least upvotes Most comments Least
-      comments Add Feedback
-
+      <main class="main">
+         <div class="card no-feedback">
+            <img src="/assets/suggestions/illustration-empty.svg" alt="" />
+            <h2>There is no feedback yet.</h2>
+            <p>
+               Got a suggestion? Found a bug that needs to be squashed? We love
+               hearing about new ideas to improve our app.
+            </p>
+            <button class="btn btn-add-feedback">+ Add Feedback</button>
+         </div>
+      </main>
       <!-- No feedback -->
       There is no feedback yet. Got a suggestion? Found a bug that needs to be
       squashed? We love hearing about new ideas to improve our app. Add Feedback

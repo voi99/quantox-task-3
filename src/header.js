@@ -12,16 +12,16 @@ menu.addEventListener('click', (e) => {
 
 async function toogleIcon(target) {
    if (changer) {
-      await animateCSS(target, 'zoomOut', '0.15s')
+      await animateCSS(target, 'zoomOut', '0.1s')
       target.src = '/assets/shared/mobile/icon-close.svg'
-      await animateCSS(target, 'zoomIn', '0.15s')
+      await animateCSS(target, 'zoomIn', '0.1s')
       sidebar.classList.add('slide')
-      await animateCSS(sidebar, 'slideInRight', '0.4s')
+      await animateCSS(sidebar, 'slideInRight', '0.25s')
    } else {
-      await animateCSS(target, 'zoomOut', '0.15s')
+      await animateCSS(target, 'zoomOut', '0.1s')
       target.src = '/assets/shared/mobile/icon-hamburger.svg'
-      await animateCSS(target, 'zoomIn', '0.15s')
-      await animateCSS(sidebar, 'slideOutRight', '0.4s')
+      await animateCSS(target, 'zoomIn', '0.1s')
+      await animateCSS(sidebar, 'slideOutRight', '0.25s')
       sidebar.classList.remove('slide')
    }
    changer = !changer
