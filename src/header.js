@@ -4,14 +4,14 @@ const $ = (e) => document.querySelector(e)
 
 const menu = $('.header-menu img')
 const sidebar = $('.sidebar')
-let changer = true
+let flag = true
 
 menu.addEventListener('click', (e) => {
    toogleIcon(e.currentTarget)
 })
 
 async function toogleIcon(target) {
-   if (changer) {
+   if (flag) {
       await animateCSS(target, 'zoomOut', '0.1s')
       target.src = '/assets/shared/mobile/icon-close.svg'
       await animateCSS(target, 'zoomIn', '0.1s')
@@ -24,5 +24,5 @@ async function toogleIcon(target) {
       await animateCSS(sidebar, 'slideOutRight', '0.25s')
       sidebar.classList.remove('slide')
    }
-   changer = !changer
+   flag = !flag
 }
