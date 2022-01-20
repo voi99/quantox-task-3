@@ -66,3 +66,7 @@ h4 {
 .title {
    color: var(--dark-light-blue);
 }
+
+.secondary-text {
+   color: var(--blue-grey);
+}
