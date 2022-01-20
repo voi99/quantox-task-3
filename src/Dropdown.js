@@ -7,7 +7,7 @@ const dropdown = $('.custom-select-dropdown')
 const arrow = $('.arrow-sorting i')
 let flag = true
 
-customSelect.addEventListener('click', async () => {
+customSelect.addEventListener('click', async (e) => {
    if (flag) {
       dropdown.classList.toggle('hide')
       arrow.style.transform = `rotate(180deg)`
