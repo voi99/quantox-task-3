@@ -7,7 +7,9 @@
    align-items: center;
    padding: 0.8rem 1.5rem;
    height: 5rem;
-   position: relative;
+   position: fixed;
+   width: 100%;
+   z-index: 2;
 }
 
 .header-logo-title,
@@ -54,27 +56,10 @@
    right: 0;
 }
 
-.card {
-   background-color: var(--white);
-   padding: 1.2rem 1.5rem;
-   border-radius: 1rem;
-}
-
 .sidebar-categories {
    display: flex;
    gap: 0.8rem;
    flex-wrap: wrap;
-}
-
-.category-btn {
-   color: var(--blue);
-   background-color: var(--white-smoke);
-   padding: 0.5rem 1rem;
-}
-
-#active-category {
-   color: var(--white);
-   background-color: var(--blue);
 }
 
 .roadmap {
@@ -149,6 +134,7 @@
    align-items: center;
    background-color: var(--dark-blue);
    padding: 0.6rem 1rem;
+   margin-top: 5rem;
 }
 
 .custom-select-wrapper {
@@ -177,11 +163,6 @@
    transition: all 0.2s ease-in;
 }
 
-.btn-add-feedback {
-   color: var(--white);
-   background-color: var(--purple);
-}
-
 .custom-select-dropdown {
    position: absolute;
    top: 2.8rem;
@@ -203,83 +184,6 @@
 
 .custom-select-dropdown-option:not(:last-child) {
    border-bottom: 0.1px solid var(--blue-grey-transparent);
-}
-
-.main {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   padding: 1.5rem;
-   margin: auto;
-   gap: 1rem;
-}
-
-.no-feedback {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   height: 70vh;
-}
-
-.no-feedback-image {
-   margin-bottom: 2rem;
-}
-
-.no-feedback-text {
-   text-align: center;
-   color: var(--blue-grey);
-}
-
-.request {
-   display: flex;
-   flex-direction: column;
-   gap: 0.8rem;
-}
-
-.request-title {
-   margin: 0;
-}
-
-.request-text {
-   margin: 0;
-   font-size: 15px;
-}
-
-.request .btn {
-   align-self: flex-start;
-}
-
-.request-footer {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-}
-
-.upvotes-wrapper {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background-color: var(--white-smoke);
-   padding: 0.2rem 0.6rem;
-   border-radius: 0.6rem;
-}
-
-.upvotes-wrapper > *,
-.comments-wrapper > * {
-   margin: 0 0.3rem;
-}
-
-.comments-wrapper {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-}
-
-.request-footer span {
-   font-weight: bold;
-   color: var(--dark-light-blue);
 }
 
 .hide {

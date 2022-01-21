@@ -1,37 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link
+         rel="icon"
+         type="image/png"
+         sizes="32x32"
+         href="./assets/favicon-32x32.png"
+      />
+      <link rel="stylesheet" href="../shared.css" />
+      <link rel="stylesheet" href="../css/feedback-detail.css" />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      />
+      <script src="../src/FeedBackDetails.js" defer type="module"></script>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+      <title>Frontend Mentor | Product feedback app</title>
+   </head>
 
-  <title>Frontend Mentor | Product feedback app</title>
-</head>
+   <body>
+      <header class="header">
+         <div class="header-back secondary-text">
+            <img src="../assets/shared/icon-arrow-left.svg" alt="" />
+            Go Back
+         </div>
+         <button class="btn edit-btn">Edit Feedback</button>
+      </header>
 
-<body>
-  Go Back
-  Edit Feedback
+      <main class="main">
+         <div class="main-feedback"></div>
+         <section class="comments card"></section>
 
-  <!-- Add upvotes --> 
-  <!-- Add title -->
-  <!-- Add description -->
-  <!-- Add category -->
-  <!-- Add comments -->
-
-  <!-- Add number of comments + subcomments --> Comments
-
-  <!-- Add name -->
-  <!-- Add username -->
-  <!-- Add comment -->
-  Reply
-
-  Add Comment
-  Type your comment here
-  250 Characters left
-
-  Post Comment
-  
-</body>
-<html
+         <form action="" class="card add-comment-form">
+            <h2 class="title">Add Comment</h2>
+            <textarea
+               name=""
+               id=""
+               cols="30"
+               rows="5"
+               placeholder="Type your comment here"
+            ></textarea>
+            <div>
+               <span></span>
+               <button class="btn btn-purple">Post Comment</button>
+            </div>
+         </form>
+      </main>
+   </body>
+</html>

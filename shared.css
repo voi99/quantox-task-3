@@ -55,12 +55,45 @@ h4 {
    letter-spacing: -0.2px;
 }
 
+input,
+textarea,
+select {
+   background-color: var(--white-light-smoke);
+   padding: 0.5rem 1rem;
+   border-radius: 0.6rem;
+   border: 1px solid var(--white-light-smoke);
+   font-family: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+   outline: none;
+   border: 1px solid var(--blue);
+}
+
 .btn {
    font-family: inherit;
    border: none;
    border-radius: 0.6rem;
-   padding: 0.8rem 1rem;
+   padding: 0.5rem 1rem;
    font-weight: bold;
+}
+
+.category-btn {
+   color: var(--blue);
+   background-color: var(--white-smoke);
+   padding: 0.5rem 1rem;
+}
+
+.btn-purple {
+   color: var(--white);
+   background-color: var(--purple);
+}
+
+#active-category {
+   color: var(--white);
+   background-color: var(--blue);
 }
 
 .title {
@@ -69,4 +102,97 @@ h4 {
 
 .secondary-text {
    color: var(--blue-grey);
+}
+
+.card {
+   background-color: var(--white);
+   padding: 1.4rem 1.5rem;
+   border-radius: 1rem;
+}
+
+.main {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   padding: 1.5rem;
+   margin: auto;
+}
+
+.feedbacks {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   gap: 1rem;
+}
+
+.no-feedback {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 70vh;
+}
+
+.no-feedback-image {
+   margin-bottom: 2rem;
+}
+
+.no-feedback-text {
+   text-align: center;
+   color: var(--blue-grey);
+}
+
+.feedback {
+   display: flex;
+   flex-direction: column;
+   gap: 0.8rem;
+}
+
+.feedback-title {
+   margin: 0;
+}
+
+.feedback-text {
+   margin: 0;
+}
+
+.feedback .btn {
+   align-self: flex-start;
+}
+
+.feedback-footer {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.upvotes-wrapper {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: var(--white-smoke);
+   padding: 0.2rem 0.6rem;
+   border-radius: 0.6rem;
+}
+
+.upvotes-wrapper > *,
+.comments-wrapper > * {
+   margin: 0 0.3rem;
+}
+
+.comments-wrapper {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.feedback-footer span {
+   font-weight: bold;
+   color: var(--dark-light-blue);
+}
+
+.hide {
+   display: none !important;
 }

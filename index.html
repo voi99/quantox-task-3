@@ -23,6 +23,7 @@
       <script src="src/Animate.js" defer type="module"></script>
       <script src="src/header.js" defer type="module"></script>
       <script src="src/Dropdown.js" defer type="module"></script>
+      <script src="src/Feedbacks.js" defer type="module"></script>
 
       <title>Frontend Mentor | Product feedback app</title>
    </head>
@@ -95,44 +96,11 @@
                <div class="custom-select-dropdown-option">Least Comments</div>
             </div>
          </div>
-         <button class="btn btn-add-feedback">+ Add Feedback</button>
+         <button class="btn btn-purple">+ Add Feedback</button>
       </section>
 
       <main class="main">
-         <div class="card request">
-            <h4 class="title request-title">Add tags for solutions</h4>
-            <p class="request-text secondary-text">
-               Easier to search for solutions based on a specific stack.
-            </p>
-            <button class="btn category-btn">Enhancement</button>
-            <div class="request-footer">
-               <div class="upvotes-wrapper">
-                  <img src="assets/shared/icon-arrow-up.svg" alt="" />
-                  <span class="votes">112</span>
-               </div>
-               <div class="comments-wrapper">
-                  <img src="assets/shared/icon-comments.svg" alt="" />
-                  <span class="comments-no">2</span>
-               </div>
-            </div>
-         </div>
-         <div class="card request">
-            <h4 class="title request-title">Add tags for solutions</h4>
-            <p class="request-text secondary-text">
-               Easier to search for solutions based on a specific stack.
-            </p>
-            <button class="btn category-btn">Enhancement</button>
-            <div class="request-footer">
-               <div class="upvotes-wrapper">
-                  <img src="assets/shared/icon-arrow-up.svg" alt="" />
-                  <span class="votes">112</span>
-               </div>
-               <div class="comments-wrapper">
-                  <img src="assets/shared/icon-comments.svg" alt="" />
-                  <span class="comments-no">2</span>
-               </div>
-            </div>
-         </div>
+         <div class="feedbacks"></div>
          <div class="card no-feedback hide">
             <img
                src="/assets/suggestions/illustration-empty.svg"
@@ -144,7 +112,7 @@
                Got a suggestion? Found a bug that needs to be squashed? We love
                hearing about new ideas to improve our app.
             </p>
-            <button class="btn btn-add-feedback">+ Add Feedback</button>
+            <button class="btn btn-purple">+ Add Feedback</button>
          </div>
       </main>
    </body>
