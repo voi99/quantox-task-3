@@ -196,3 +196,7 @@ select:focus {
 .hide {
    display: none !important;
 }
+
+.disable-scroll {
+   overflow: hidden;
+}

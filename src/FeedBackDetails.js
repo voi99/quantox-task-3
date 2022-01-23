@@ -52,36 +52,91 @@ function commentsHTMLBuilder({ comments }) {
                   <p>
                      ${comment.content}
                   </p>
-                  <div class="form-wrapper hide">
-                     <form action="" class="comment-reply-form">
-                        <textarea
-                           name=""
-                           id=""
-                           cols="30"
-                           rows="10"
-                           maxlength="250"
-                           class="secondary-text"
-                        ></textarea>
-                        <button type="submit" class="btn btn-purple">
-                           Post Reply
-                        </button>
-                     </form>
+                  <div class="replies"> 
+                     ${comment.replies ? replies(comment.replies) : ''}
                   </div>
+                 
+                  ${replyForm()}
                </div>
             </div>`
       })
       $$('[data-id^=reply-to]').forEach((replay) => {
          replay.addEventListener('click', (e) => {
             const splitDataset = e.currentTarget.dataset.id.split('-')
+            e.currentTarget.classList.toggle('clicked-reply')
             const id = splitDataset[splitDataset.length - 1]
             const reply = $(`[data-id='comment-${id}'] .form-wrapper`)
-            reply.classList.remove('hide')
-            animateCSS(reply, 'zoomIn', '0.5s')
+            if (e.currentTarget.classList.contains('clicked-reply')) {
+               reply.classList.remove('hide')
+               e.currentTarget.innerHTML = 'Cancel'
+               animateCSS(reply, 'zoomIn', '0.5s')
+            } else {
+               e.currentTarget.innerHTML = 'Reply'
+               animateCSS(reply, 'zoomOut', '0.5s').then(() => {
+                  reply.classList.add('hide')
+               })
+            }
+         })
+      })
+
+      $$('.comment-reply-form').forEach((form) => {
+         form.addEventListener('submit', (e) => {
+            e.preventDefault()
          })
       })
    } else {
       commentsSection.innerHTML = 'Be first to post a comment!'
    }
+}
+
+function replies(replies) {
+   let repliesHTML = ``
+   replies.forEach((comment) => {
+      repliesHTML += `<div class="comment" data-id=comment-${comment.id}>
+               <div class="user">
+                  <div class="user-info-wrapper">
+                     <img src=".${comment.user.image}" alt="" />
+                     <div class="user-info">
+                        <h3 class="title">${comment.user.name}</h3>
+                        <span class="secondary-text">@${
+                           comment.user.username
+                        }</span>
+                     </div>
+                  </div>
+                  <h4 class="comment-reply" data-id='reply-to-${
+                     comment.id
+                  }'>Reply</h4>
+               </div>
+               <div class="secondary-text">
+                  <p>
+                     ${comment.content}
+                  </p>
+                  ${replyForm()}
+               </div>
+            </div>`
+   })
+
+   return repliesHTML
+}
+
+function replyForm() {
+   return `
+      <div class="form-wrapper hide">
+            <form action="" class="comment-reply-form">
+               <textarea
+                  name=""
+                  id=""
+                  cols="30"
+                  rows="10"
+                  maxlength="250"
+                  class="secondary-text"
+                  required
+               ></textarea>
+               <button type="submit" class="btn btn-purple">
+                  Post Reply
+               </button>
+            </form>
+         </div>`
 }
 
 loadFeedbackDetails()

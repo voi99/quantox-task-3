@@ -4,6 +4,7 @@ const $ = (e) => document.querySelector(e)
 
 const menu = $('.header-menu img')
 const sidebar = $('.sidebar')
+const body = $('body')
 let flag = true
 
 menu.addEventListener('click', (e) => {
@@ -11,6 +12,7 @@ menu.addEventListener('click', (e) => {
 })
 
 async function toogleIcon(target) {
+   body.classList.toggle('disable-scroll')
    if (flag) {
       await animateCSS(target, 'zoomOut', '0.1s')
       target.src = '/assets/shared/mobile/icon-close.svg'

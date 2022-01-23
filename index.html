@@ -43,11 +43,15 @@
                <button class="btn category-btn" id="active-category">
                   All
                </button>
-               <button class="btn category-btn">UI</button>
-               <button class="btn category-btn">UX</button>
-               <button class="btn category-btn">Enhancement</button>
-               <button class="btn category-btn">Bug</button>
-               <button class="btn category-btn">Feature</button>
+               <button class="btn category-btn" data-id="ui">UI</button>
+               <button class="btn category-btn" data-id="ux">UX</button>
+               <button class="btn category-btn" data-id="enhancement">
+                  Enhancement
+               </button>
+               <button class="btn category-btn" data-id="bug">Bug</button>
+               <button class="btn category-btn" data-id="feature">
+                  Feature
+               </button>
             </div>
             <div class="roadmap card">
                <header class="roadmap-header">
@@ -90,10 +94,35 @@
                </div>
             </div>
             <div class="custom-select-dropdown hide">
-               <div class="custom-select-dropdown-option">Most Upvotes</div>
-               <div class="custom-select-dropdown-option">Least Upvotes</div>
-               <div class="custom-select-dropdown-option">Most Comments</div>
-               <div class="custom-select-dropdown-option">Least Comments</div>
+               <div
+                  class="custom-select-dropdown-option"
+                  data-id="mostUpvotes"
+                  id="active-sorting"
+               >
+                  Most Upvotes
+                  <img src="./assets/shared/icon-check.svg" alt="" />
+               </div>
+               <div
+                  class="custom-select-dropdown-option"
+                  data-id="leastUpvotes"
+               >
+                  Least Upvotes
+                  <img src="./assets/shared/icon-check.svg" alt="" />
+               </div>
+               <div
+                  class="custom-select-dropdown-option"
+                  data-id="mostComments"
+               >
+                  Most Comments
+                  <img src="./assets/shared/icon-check.svg" alt="" />
+               </div>
+               <div
+                  class="custom-select-dropdown-option"
+                  data-id="leastComments"
+               >
+                  Least Comments
+                  <img src="./assets/shared/icon-check.svg" alt="" />
+               </div>
             </div>
          </div>
          <button class="btn btn-purple">+ Add Feedback</button>

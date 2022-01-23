@@ -9,10 +9,29 @@ export const fetchData = async () => {
    return data
 }
 
-export const fillFeedbacks = async () => {
+export const fillFeedbacks = async (category, sortBy = 'mostUpvotes') => {
    const feedbacksSection = $('.feedbacks')
+   const noFeedbacks = $('.no-feedback')
+   feedbacksSection.innerHTML = ''
    const { productRequests } = await fetchData()
-   productRequests.forEach((feedback) => {
+   let filteredData
+   if (category) {
+      filteredData = productRequests.filter(
+         (request) => request.category === category
+      )
+   } else {
+      filteredData = productRequests
+   }
+   if (filteredData.length === 0) {
+      noFeedbacks.classList.remove('hide')
+      return
+   } else if (!noFeedbacks.classList.contains('hide')) {
+      noFeedbacks.classList.add('hide')
+   }
+
+   filteredData = sortData(filteredData, sortBy)
+
+   filteredData.forEach((feedback) => {
       feedbacksSection.innerHTML += feedbackHTMLBuilder(
          feedback,
          ARROW_IMG_PATH,
@@ -53,4 +72,32 @@ export function feedbackHTMLBuilder(feedback, arrowImg, commentsImg) {
 
 function openFeedbackDetailPage(id) {
    window.location.href = `./pages/feedback-detail.html?id=${id}`
+}
+
+function sortData(data, sortBy) {
+   let sortedData = data
+   if (sortBy === 'mostUpvotes') {
+      sortedData.sort((a, b) => {
+         return b.upvotes - a.upvotes
+      })
+   } else if (sortBy === 'leastUpvotes') {
+      sortedData.sort((a, b) => {
+         return a.upvotes - b.upvotes
+      })
+   } else if (sortBy === 'mostComments') {
+      sortedData.sort((a, b) => {
+         return (
+            (b.comments ? b.comments.length : 0) -
+            (a.comments ? a.comments.length : 0)
+         )
+      })
+   } else if (sortBy === 'leastComments') {
+      sortedData.sort((a, b) => {
+         return (
+            (a.comments ? a.comments.length : 0) -
+            (b.comments ? b.comments.length : 0)
+         )
+      })
+   }
+   return sortedData
 }
