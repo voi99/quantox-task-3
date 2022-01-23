@@ -15,6 +15,7 @@ categoryButtons.forEach((btn) => {
       })
       e.currentTarget.id = 'active-category'
       activeCategory = e.currentTarget.dataset.id
-      fillFeedbacks(activeCategory)
+      const activeSorting = $('#active-sorting')
+      fillFeedbacks(activeCategory, activeSorting.dataset.id)
    })
 })

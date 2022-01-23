@@ -43,6 +43,13 @@ export const fillFeedbacks = async (category, sortBy = 'mostUpvotes') => {
          openFeedbackDetailPage(e.currentTarget.dataset.id)
       })
    })
+
+   $$('.upvotes-wrapper').forEach((upvote) => {
+      upvote.addEventListener('click', (e) => {
+         e.stopPropagation()
+         console.log(e)
+      })
+   })
 }
 
 export function feedbackHTMLBuilder(feedback, arrowImg, commentsImg) {

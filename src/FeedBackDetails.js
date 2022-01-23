@@ -109,7 +109,9 @@ function replies(replies) {
                </div>
                <div class="secondary-text">
                   <p>
-                     ${comment.content}
+                     <span class='replying-to-username'>@${
+                        comment.replyingTo
+                     }</span> ${comment.content}
                   </p>
                   ${replyForm()}
                </div>

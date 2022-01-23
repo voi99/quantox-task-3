@@ -29,6 +29,7 @@ body {
    overflow-x: hidden;
    height: 100%;
    background-color: var(--white-light-smoke);
+   padding-bottom: 2.5rem;
 }
 
 h1 {
