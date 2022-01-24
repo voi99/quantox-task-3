@@ -1,0 +1,51 @@
+.card {
+   position: relative;
+}
+
+.new-feedback-image {
+   position: absolute;
+   height: 2.5rem;
+   top: -1rem;
+   width: 2.5rem;
+   background-image: url('../assets/shared/icon-new-feedback.svg');
+   background-size: contain;
+}
+
+.custom-select-wrapper {
+   color: var(--dark-light-blue);
+   padding: 0.5rem 1rem;
+   background-color: var(--white-light-smoke);
+   border-radius: 0.6rem;
+   width: 100%;
+}
+
+.custom-select {
+   width: 100%;
+}
+
+.custom-select-dropdown {
+   top: 2.6rem;
+   left: 0;
+   width: 100%;
+}
+
+.arrow-sorting {
+   padding-left: 0.4rem;
+}
+
+.arrow-sorting i {
+   transition: all 0.2s ease-in;
+}
+
+.actions {
+   display: flex;
+   justify-content: center;
+   align-items: stretch;
+   flex-direction: column;
+   gap: 1.5rem;
+   padding: 1.5rem 0;
+}
+
+#selected-category img {
+   display: inline-block;
+}
