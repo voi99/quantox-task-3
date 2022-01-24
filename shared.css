@@ -273,3 +273,21 @@ textarea {
 .custom-select-dropdown-option img {
    display: none;
 }
+
+@media only screen and (min-width: 768px) {
+   html {
+      overflow-x: unset;
+      height: auto;
+   }
+   body {
+      margin: 2rem 2rem;
+      overflow-x: unset;
+   }
+}
+
+@media only screen and (min-width: 1280px) {
+   body {
+      max-width: 1280px;
+      margin: 2rem auto !important;
+   }
+}

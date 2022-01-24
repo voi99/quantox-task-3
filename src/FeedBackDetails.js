@@ -24,12 +24,13 @@ const loadFeedbackDetails = async () => {
       ARROW_IMG_PATH,
       COMMENTS_IMG_PATH
    )
-   $('.main-feedback').innerHTML += feedbackCard
+   $('.main-feedback').innerHTML = feedbackCard
    commentsHTMLBuilder(feedback)
 }
 
 function commentsHTMLBuilder({ comments }) {
    const commentsSection = $('.comments')
+   commentsSection.innerHTML = ''
    if (comments) {
       commentsSection.innerHTML += `<h2 class="title">${comments.length} ${
          comments.length > 1 ? 'Comments' : 'Comment'
@@ -48,19 +49,23 @@ function commentsHTMLBuilder({ comments }) {
                         }</span>
                      </div>
                   </div>
-                  <h4 class="comment-reply" data-id='reply-to-${
-                     comment.id
-                  }'>Reply</h4>
+                  <h4 class="comment-reply" data-id='reply-to-${comment.id}-${
+            comment.user.username
+         }'>Reply</h4>
                </div>
                <div class="secondary-text">
                   <p>
                      ${comment.content}
                   </p>
-                  <div class="replies"> 
-                     ${comment.replies ? replies(comment.replies) : ''}
-                  </div>
-                 
-                  ${replyForm()}
+                   
+                     ${
+                        comment.replies
+                           ? `<div class='replies'>${replies(
+                                comment.id,
+                                comment.replies
+                             )}</div>`
+                           : `${replyForm(comment.id)}`
+                     }
                </div>
             </div>`
       })
@@ -68,8 +73,12 @@ function commentsHTMLBuilder({ comments }) {
          replay.addEventListener('click', (e) => {
             const splitDataset = e.currentTarget.dataset.id.split('-')
             e.currentTarget.classList.toggle('clicked-reply')
-            const id = splitDataset[splitDataset.length - 1]
-            const reply = $(`[data-id='comment-${id}'] .form-wrapper`)
+            const id = splitDataset[splitDataset.length - 2]
+            const username = splitDataset[splitDataset.length - 1]
+            const reply = $(`.form-wrapper[data-set='comment-${id}']`)
+            $(
+               `.form-wrapper[data-set='comment-${id}'] form`
+            ).dataset.id = `${id}-${username}`
             if (e.currentTarget.classList.contains('clicked-reply')) {
                reply.classList.remove('hide')
                e.currentTarget.innerHTML = 'Cancel'
@@ -84,50 +93,43 @@ function commentsHTMLBuilder({ comments }) {
       })
 
       $$('.comment-reply-form').forEach((form) => {
-         form.addEventListener('submit', (e) => {
-            e.preventDefault()
-         })
+         addNewCommentFormHandler(form)
       })
    } else {
       commentsSection.innerHTML = 'Be first to post a comment!'
    }
 }
 
-function replies(replies) {
+function replies(commentId, replies) {
    let repliesHTML = ``
    replies.forEach((comment) => {
-      repliesHTML += `<div class="comment" data-id=comment-${comment.id}>
+      repliesHTML += `<div class="comment" data-set='comment-${commentId}'>
                <div class="user">
                   <div class="user-info-wrapper">
                      <img src=".${comment.user.image}" alt="" />
                      <div class="user-info">
                         <h3 class="title">${comment.user.name}</h3>
-                        <span class="secondary-text">@${
-                           comment.user.username
-                        }</span>
+                        <span class="secondary-text">@${comment.user.username}</span>
                      </div>
                   </div>
-                  <h4 class="comment-reply" data-id='reply-to-${
-                     comment.id
-                  }'>Reply</h4>
+                  <h4 class="comment-reply" data-id='reply-to-${commentId}-${comment.user.username}'>Reply</h4>
                </div>
                <div class="secondary-text">
                   <p>
-                     <span class='replying-to-username'>@${
-                        comment.replyingTo
-                     }</span> ${comment.content}
+                     <span class='replying-to-username'>@${comment.replyingTo}</span> ${comment.content}
                   </p>
-                  ${replyForm()}
                </div>
             </div>`
    })
 
+   repliesHTML += `${replyForm(commentId)}`
+
    return repliesHTML
 }
 
-function replyForm() {
+function replyForm(commentId) {
    return `
-      <div class="form-wrapper hide">
+      <div class="form-wrapper hide" data-set='comment-${commentId}'>
             <form action="" class="comment-reply-form">
                <textarea
                   name=""
@@ -143,6 +145,39 @@ function replyForm() {
                </button>
             </form>
          </div>`
+}
+
+function addNewCommentFormHandler(form) {
+   form.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      const data = await fetchData()
+      const user = data.currentUser
+      const id = getId()
+      const commentId = e.target.dataset.id.split('-')[0]
+      const replyingTo = e.target.dataset.id.split('-')[1]
+      const replyText = e.target.children[0].value
+      const selectedComment = data.productRequests
+         .filter((r) => r.id === +id)[0]
+         .comments.filter((c) => c.id === +commentId)[0]
+
+      selectedComment.replies
+         ? selectedComment.replies.push({
+              content: replyText,
+              replyingTo,
+              user,
+           })
+         : (selectedComment['replies'] = [
+              { content: replyText, replyingTo, user },
+           ])
+
+      data.productRequests
+         .filter((r) => r.id === +id)[0]
+         .comments.filter((c) => c.id === +commentId)[0]['replies'] =
+         selectedComment.replies
+
+      localStorage.setItem('data', JSON.stringify(data))
+      loadFeedbackDetails()
+   })
 }
 
 $('.edit-btn').addEventListener('click', () => {

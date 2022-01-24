@@ -149,3 +149,60 @@
 #active-sorting img {
    display: inline-block;
 }
+
+@media only screen and (min-width: 768px) {
+   .header {
+      background: none;
+      height: auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 1rem;
+      padding: 0 0 1rem 0;
+   }
+
+   .header-menu {
+      display: none;
+   }
+
+   .header-logo {
+      background-image: url('../assets/suggestions/tablet/background-header.png');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      height: 100%;
+      border-radius: 0.6rem;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+   }
+
+   .sidebar {
+      position: static;
+      width: auto;
+      height: auto;
+      flex-direction: row;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1fr;
+      gap: 1rem;
+   }
+
+   .sidebar-categories {
+      height: 100%;
+      align-items: center;
+   }
+
+   .sorting-section {
+      border-radius: 0.6rem;
+      top: 0.6rem;
+   }
+
+   .main {
+      padding: 1.5rem 0;
+   }
+
+   .roadmap {
+      padding: 0.8rem 1.5rem;
+   }
+}

@@ -14,15 +14,18 @@ menu.addEventListener('click', (e) => {
 async function toogleIcon(target) {
    body.classList.toggle('disable-scroll')
    if (flag) {
-      await animateCSS(target, 'zoomOut', '0.1s')
-      target.src = '/assets/shared/mobile/icon-close.svg'
-      await animateCSS(target, 'zoomIn', '0.1s')
+      animateCSS(target, 'zoomOut', '0.2s').then(() => {
+         target.src = '/assets/shared/mobile/icon-close.svg'
+         animateCSS(target, 'zoomIn', '0.2s')
+      })
+
       sidebar.classList.add('slide')
-      await animateCSS(sidebar, 'slideInRight', '0.25s')
+      animateCSS(sidebar, 'slideInRight', '0.25s')
    } else {
-      await animateCSS(target, 'zoomOut', '0.1s')
-      target.src = '/assets/shared/mobile/icon-hamburger.svg'
-      await animateCSS(target, 'zoomIn', '0.1s')
+      animateCSS(target, 'zoomOut', '0.2s').then(() => {
+         target.src = '/assets/shared/mobile/icon-hamburger.svg'
+         animateCSS(target, 'zoomIn', '0.2s')
+      })
       await animateCSS(sidebar, 'slideOutRight', '0.25s')
       sidebar.classList.remove('slide')
    }

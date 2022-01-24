@@ -30,6 +30,10 @@
    gap: 1rem;
 }
 
+.comment {
+   width: 100%;
+}
+
 .comments h2 {
    align-self: flex-start;
 }
