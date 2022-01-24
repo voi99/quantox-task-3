@@ -10,9 +10,13 @@ $('.header-back').addEventListener('click', () => {
    window.location.href = `../index.html`
 })
 
-const loadFeedbackDetails = async () => {
+const getId = () => {
    const url = new URL(window.location)
-   const id = url.searchParams.get('id')
+   return url.searchParams.get('id')
+}
+
+const loadFeedbackDetails = async () => {
+   const id = getId()
    const { productRequests } = await fetchData()
    const feedback = productRequests.filter((feedback) => feedback.id === +id)[0]
    const feedbackCard = feedbackHTMLBuilder(
@@ -140,5 +144,10 @@ function replyForm() {
             </form>
          </div>`
 }
+
+$('.edit-btn').addEventListener('click', () => {
+   const id = getId()
+   window.location.href = `./feedback-edit.html?id=${id}`
+})
 
 loadFeedbackDetails()

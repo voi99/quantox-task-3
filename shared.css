@@ -12,6 +12,7 @@
    --orange: #f49f85;
    --light-blue: #62bcfa;
    --blue-grey-transparent: #64719685;
+   --red: #d73737;
 }
 
 * {
@@ -102,6 +103,11 @@ textarea {
    background-color: var(--dark-light-blue);
 }
 
+.btn-red {
+   color: var(--white);
+   background-color: var(--red);
+}
+
 #active-category {
    color: var(--white);
    background-color: var(--blue);
@@ -119,6 +125,7 @@ textarea {
    background-color: var(--white);
    padding: 1.4rem 1.5rem;
    border-radius: 1rem;
+   width: 100%;
 }
 
 .main {
@@ -130,12 +137,17 @@ textarea {
    margin: auto;
 }
 
+.main-feedback {
+   width: 100%;
+}
+
 .feedbacks {
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
    gap: 1rem;
+   width: 100%;
 }
 
 .no-feedback {

@@ -4,9 +4,29 @@ const ARROW_IMG_PATH = 'assets/shared/icon-arrow-up.svg'
 const COMMENTS_IMG_PATH = 'assets/shared/icon-comments.svg'
 
 export const fetchData = async () => {
-   const feedback = await fetch('../api/data.json')
-   const data = await feedback.json()
-   return data
+   if (localStorage.getItem('data')) {
+      const data = JSON.parse(localStorage.getItem('data'))
+      return data
+   } else {
+      const feedback = await fetch('../api/data.json')
+      const data = await feedback.json()
+      localStorage.setItem('data', JSON.stringify(data))
+      return data
+   }
+}
+
+export const getSingleFeedback = async (id) => {
+   const { productRequests } = await fetchData()
+   const singleFeedback = productRequests.filter(
+      (feedback) => feedback.id === +id
+   )[0]
+   return singleFeedback
+}
+
+export const addNewFeedback = async (feedback) => {
+   const previousData = await fetchData()
+   previousData.productRequests.push(feedback)
+   localStorage.setItem('data', JSON.stringify(previousData))
 }
 
 export const fillFeedbacks = async (category, sortBy = 'mostUpvotes') => {

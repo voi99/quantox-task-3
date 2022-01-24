@@ -1,0 +1,8 @@
+.edit-feedback-image {
+   position: absolute;
+   height: 2.5rem;
+   top: -1rem;
+   width: 2.5rem;
+   background-image: url('../assets/shared/icon-edit-feedback.svg');
+   background-size: contain;
+}
