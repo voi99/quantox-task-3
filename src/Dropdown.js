@@ -16,10 +16,10 @@ customSelect.addEventListener('click', async (e) => {
    if (flag) {
       dropdown.classList.toggle('hide')
       arrow.style.transform = `rotate(180deg)`
-      await animateCSS(dropdown, 'zoomIn', '0.5s')
+      await animateCSS(dropdown, 'zoomIn', '0.2s')
    } else {
       arrow.style.transform = `rotate(0deg)`
-      await animateCSS(dropdown, 'zoomOut', '1s')
+      await animateCSS(dropdown, 'zoomOut', '0.2s')
       dropdown.classList.toggle('hide')
    }
    flag = !flag

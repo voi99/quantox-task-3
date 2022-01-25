@@ -1,29 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link
+         rel="icon"
+         type="image/png"
+         sizes="32x32"
+         href="./assets/favicon-32x32.png"
+      />
+      <link rel="stylesheet" href="../shared.css" />
+      <link rel="stylesheet" href="../css/roadmap.css" />
+      <script src="../src/Roadmap.js" defer type="module"></script>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+      <title>Frontend Mentor | Product feedback app</title>
+   </head>
 
-  <title>Frontend Mentor | Product feedback app</title>
-</head>
+   <body>
+      <header class="header">
+         <div>
+            <div class="header-back">
+               <img src="../assets/shared/icon-arrow-left.svg" alt="" />
+               Go Back
+            </div>
+            <h3>Roadmap</h3>
+         </div>
+         <a href="./feedback-new.html" class="btn btn-purple link"
+            >+ Add Feedback</a
+         >
+      </header>
 
-<body>
-  Go back
-  Roadmap
-
-  Add Feedback
-
-  Planned <!-- Add number here -->
-  Ideas prioritized for research
-
-  In-Progress <!-- Add number here -->
-  Currently being developed
-
-  Live <!-- Add number here -->
-  Released features
-
-</body>
-<html
+      <section class="status-section-filter">
+         <div class="planned">Planned(<span></span>)</div>
+         <div class="in-progress" id="active-status">
+            In-Progress(<span></span>)
+         </div>
+         <div class="live">Live(<span></span>)</div>
+      </section>
+      <main class="main">
+         <div class="list-planned-feedbacks" data-id="planned"></div>
+         <div class="list-in-progress-feedbacks" data-id="in-progress">
+            In-Progress
+         </div>
+         <div class="list-live-feedbacks" data-id="live">Live</div>
+      </main>
+   </body>
+</html>

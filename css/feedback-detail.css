@@ -11,11 +11,11 @@
    display: flex;
    align-items: center;
    gap: 0.7rem;
+   cursor: pointer;
 }
 
-.edit-btn {
-   background-color: var(--blue);
-   color: var(--white);
+.header-back:hover {
+   text-decoration: underline;
 }
 
 .main {
@@ -44,6 +44,11 @@
 
 .comment-reply {
    color: var(--blue);
+   cursor: pointer;
+}
+
+.comment-reply:hover {
+   color: var(--blue-hover);
 }
 
 .user {
@@ -103,11 +108,19 @@
 }
 
 .replies {
-   padding-left: 1.5rem;
+   margin-left: 1.5rem;
+   padding-left: 1rem;
    border-left: 1px solid var(--blue-grey-transparent);
 }
 
 .replying-to-username {
    color: var(--purple);
    font-weight: bold;
+}
+
+.characters-btn {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 100%;
 }

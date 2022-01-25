@@ -15,17 +15,21 @@ const getId = () => {
    return url.searchParams.get('id')
 }
 
-const loadFeedbackDetails = async () => {
+const loadFeedbackDetails = async (load) => {
    const id = getId()
    const { productRequests } = await fetchData()
    const feedback = productRequests.filter((feedback) => feedback.id === +id)[0]
-   const feedbackCard = feedbackHTMLBuilder(
-      feedback,
-      ARROW_IMG_PATH,
-      COMMENTS_IMG_PATH
-   )
-   $('.main-feedback').innerHTML = feedbackCard
-   commentsHTMLBuilder(feedback)
+   if (load) {
+      const feedbackCard = feedbackHTMLBuilder(
+         feedback,
+         ARROW_IMG_PATH,
+         COMMENTS_IMG_PATH
+      )
+      $('.main-feedback').innerHTML = feedbackCard
+      commentsHTMLBuilder(feedback)
+   } else {
+      commentsHTMLBuilder(feedback)
+   }
 }
 
 function commentsHTMLBuilder({ comments }) {
@@ -93,7 +97,7 @@ function commentsHTMLBuilder({ comments }) {
       })
 
       $$('.comment-reply-form').forEach((form) => {
-         addNewCommentFormHandler(form)
+         addNewReplyFormHandler(form)
       })
    } else {
       commentsSection.innerHTML = 'Be first to post a comment!'
@@ -147,7 +151,7 @@ function replyForm(commentId) {
          </div>`
 }
 
-function addNewCommentFormHandler(form) {
+function addNewReplyFormHandler(form) {
    form.addEventListener('submit', async (e) => {
       e.preventDefault()
       const data = await fetchData()
@@ -176,13 +180,50 @@ function addNewCommentFormHandler(form) {
          selectedComment.replies
 
       localStorage.setItem('data', JSON.stringify(data))
-      loadFeedbackDetails()
+      loadFeedbackDetails(false)
    })
 }
+
+$('.add-comment-text').addEventListener('input', (e) => {
+   const leftElement = $('.left-characters')
+   const currentLength = e.currentTarget.value.length
+   const leftNo = 250 - currentLength
+   if (leftNo >= 0) {
+      leftElement.innerHTML = `${leftNo} Characters left`
+   } else {
+      leftElement.innerHTML = `Out of characters!`
+      e.currentTarget.value = e.currentTarget.value.substring(0, 250)
+   }
+})
+
+$('.add-comment-form').addEventListener('submit', async (e) => {
+   e.preventDefault()
+   const text = $('.add-comment-text').value.substring(0, 250)
+   const id = getId()
+
+   const data = await fetchData()
+   data.productRequests.filter((req) => req.id === +id)[0].comments
+      ? data.productRequests
+           .filter((req) => req.id === +id)[0]
+           .comments.push({
+              id:
+                 data.productRequests.filter((req) => req.id === +id)[0]
+                    .comments.length + 1,
+              content: text,
+              user: data.currentUser,
+           })
+      : (data.productRequests.filter((req) => req.id === +id)[0]['comments'] = {
+           id: 1,
+           content: text,
+           user: data.currentUser,
+        })
+   localStorage.setItem('data', JSON.stringify(data))
+   loadFeedbackDetails(false)
+})
 
 $('.edit-btn').addEventListener('click', () => {
    const id = getId()
    window.location.href = `./feedback-edit.html?id=${id}`
 })
 
-loadFeedbackDetails()
+loadFeedbackDetails(true)

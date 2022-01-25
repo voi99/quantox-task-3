@@ -56,7 +56,9 @@
             <div class="roadmap card">
                <header class="roadmap-header">
                   <h2 class="roadmap-header-title">Roadmap</h2>
-                  <a href="" class="roadmap-header-link">View</a>
+                  <a href="./pages/roadmap.html" class="roadmap-header-link"
+                     >View</a
+                  >
                </header>
                <ul class="roadmap-status-list">
                   <li class="roadmap-status">
@@ -85,43 +87,50 @@
          </div>
       </header>
       <section class="sorting-section">
-         <div class="custom-select-wrapper">
-            <label for="custom-select">Sort By :</label>
-            <div class="custom-select">
-               <div class="selected-sorting">Most Upvotes</div>
-               <div class="arrow-sorting">
-                  <i class="fas fa-angle-down fa-sm"></i>
-               </div>
+         <div class="suggestions-select-wrapper">
+            <div class="suggestions">
+               <img src="./assets/suggestions/icon-suggestions.svg" alt="" />
+               <h2 class="no-of-suggetions">6</h2>
+               <h2>Suggestions</h2>
             </div>
-            <div class="custom-select-dropdown hide">
-               <div
-                  class="custom-select-dropdown-option"
-                  data-id="mostUpvotes"
-                  id="active-sorting"
-               >
-                  Most Upvotes
-                  <img src="./assets/shared/icon-check.svg" alt="" />
+            <div class="custom-select-wrapper">
+               <label for="custom-select">Sort By :</label>
+               <div class="custom-select">
+                  <div class="selected-sorting">Most Upvotes</div>
+                  <div class="arrow-sorting">
+                     <i class="fas fa-angle-down fa-sm"></i>
+                  </div>
                </div>
-               <div
-                  class="custom-select-dropdown-option"
-                  data-id="leastUpvotes"
-               >
-                  Least Upvotes
-                  <img src="./assets/shared/icon-check.svg" alt="" />
-               </div>
-               <div
-                  class="custom-select-dropdown-option"
-                  data-id="mostComments"
-               >
-                  Most Comments
-                  <img src="./assets/shared/icon-check.svg" alt="" />
-               </div>
-               <div
-                  class="custom-select-dropdown-option"
-                  data-id="leastComments"
-               >
-                  Least Comments
-                  <img src="./assets/shared/icon-check.svg" alt="" />
+               <div class="custom-select-dropdown hide">
+                  <div
+                     class="custom-select-dropdown-option"
+                     data-id="mostUpvotes"
+                     id="active-sorting"
+                  >
+                     Most Upvotes
+                     <img src="./assets/shared/icon-check.svg" alt="" />
+                  </div>
+                  <div
+                     class="custom-select-dropdown-option"
+                     data-id="leastUpvotes"
+                  >
+                     Least Upvotes
+                     <img src="./assets/shared/icon-check.svg" alt="" />
+                  </div>
+                  <div
+                     class="custom-select-dropdown-option"
+                     data-id="mostComments"
+                  >
+                     Most Comments
+                     <img src="./assets/shared/icon-check.svg" alt="" />
+                  </div>
+                  <div
+                     class="custom-select-dropdown-option"
+                     data-id="leastComments"
+                  >
+                     Least Comments
+                     <img src="./assets/shared/icon-check.svg" alt="" />
+                  </div>
                </div>
             </div>
          </div>

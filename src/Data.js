@@ -44,6 +44,7 @@ export const fillFeedbacks = async (category, sortBy = 'mostUpvotes') => {
    }
    if (filteredData.length === 0) {
       noFeedbacks.classList.remove('hide')
+      $('.no-of-suggetions').innerHTML = 0
       return
    } else if (!noFeedbacks.classList.contains('hide')) {
       noFeedbacks.classList.add('hide')
@@ -58,6 +59,8 @@ export const fillFeedbacks = async (category, sortBy = 'mostUpvotes') => {
          COMMENTS_IMG_PATH
       )
    })
+
+   $('.no-of-suggetions').innerHTML = filteredData.length
    $$('.feedback').forEach((feedback) => {
       feedback.addEventListener('click', (e) => {
          openFeedbackDetailPage(e.currentTarget.dataset.id)
@@ -72,8 +75,10 @@ export const fillFeedbacks = async (category, sortBy = 'mostUpvotes') => {
    })
 }
 
-export function feedbackHTMLBuilder(feedback, arrowImg, commentsImg) {
+export function feedbackHTMLBuilder(feedback, arrowImg, commentsImg, border) {
    return `<div class="card feedback" data-id="${feedback.id}">
+               ${border ? "<div class='top-border'></div>" : ''}
+               ${border ? `${statusInfo(feedback)}` : ''}
                <h3 class="title feedback-title">${feedback.title}</h3>
                <p class="feedback-text secondary-text">
                   ${feedback.description}
@@ -95,6 +100,22 @@ export function feedbackHTMLBuilder(feedback, arrowImg, commentsImg) {
                   </div>
                </div>
             </div>`
+}
+
+function statusInfo({ status }) {
+   let text
+   let bulletColor
+   if (status === 'planned') {
+      text = 'Planned'
+      bulletColor = 'orange'
+   } else if (status === 'in-progress') {
+      text = 'In Progress'
+      bulletColor = 'purple'
+   } else if (status === 'live') {
+      text = 'Live'
+      bulletColor = 'blue'
+   }
+   return `<div class='status-info'><div class='bullet bullet-${bulletColor}'></div><span>${text}</span></div>`
 }
 
 function openFeedbackDetailPage(id) {

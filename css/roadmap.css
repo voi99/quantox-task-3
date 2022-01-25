@@ -1,0 +1,115 @@
+.header {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   background-color: var(--dark-blue);
+   padding: 1.4rem 1.6rem;
+   color: var(--white);
+}
+
+.header-back {
+   font-size: 15px;
+   font-weight: bold;
+   display: flex;
+   align-items: center;
+   gap: 0.7rem;
+   cursor: pointer;
+}
+
+.header-back:hover {
+   text-decoration: underline;
+}
+
+.header h3 {
+   margin: 0;
+}
+
+.status-section-filter {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+}
+
+.status-section-filter > * {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 1rem 0.8rem;
+   border-bottom: 1px solid var(--blue-grey-transparent);
+}
+
+.planned#active-status {
+   border-bottom: 4px solid var(--orange);
+}
+
+.in-progress#active-status {
+   border-bottom: 4px solid var(--purple);
+}
+
+.live#active-status {
+   border-bottom: 4px solid var(--light-blue);
+}
+
+.main {
+   display: grid;
+   grid-template-columns: 1fr;
+}
+
+.feedback {
+   position: relative;
+   margin: 1rem 0;
+}
+
+.list-planned-feedbacks .top-border {
+   background-color: var(--orange);
+}
+
+.list-in-progress-feedbacks .top-border {
+   background-color: var(--purple);
+}
+
+.list-live-feedbacks .top-border {
+   background-color: var(--light-blue);
+}
+
+.top-border {
+   height: 0.5rem;
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 2;
+   width: 100%;
+}
+
+.list-planned-feedbacks > .title,
+.list-in-progress-feedbacks > .title,
+.list-live-feedbacks > .title {
+   margin-bottom: 0.2rem;
+}
+
+.list-planned-feedbacks > .secondary-text,
+.list-in-progress-feedbacks > .secondary-text,
+.list-live-feedbacks > .secondary-text {
+   margin-top: 0.2rem;
+}
+
+.status-info {
+   display: flex;
+   align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+   .header {
+      border-radius: 0.6rem;
+   }
+
+   .status-section-filter {
+      display: none;
+   }
+
+   .main {
+      grid-template-columns: repeat(3, 1fr);
+      align-items: flex-start;
+      gap: 1rem;
+   }
+}

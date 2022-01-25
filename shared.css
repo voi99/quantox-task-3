@@ -2,17 +2,22 @@
 
 :root {
    --purple: #ad1fea;
+   --purple-hover: #c75af6;
    --blue: #4661e6;
+   --blue-hover: #7c91f9;
    --dark-blue: #373f68;
    --white: #ffffff;
    --white-smoke: #f2f4ff;
    --white-light-smoke: #f7f8fd;
    --dark-light-blue: #3a4374;
+   --dark-light-blue-hover: #656ea3;
    --blue-grey: #647196;
    --orange: #f49f85;
    --light-blue: #62bcfa;
    --blue-grey-transparent: #64719685;
    --red: #d73737;
+   --red-hover: #e98888;
+   --blue-category-hover: #cfd7ff;
 }
 
 * {
@@ -85,6 +90,7 @@ textarea {
    border-radius: 0.6rem;
    padding: 0.8rem 1.4rem;
    font-weight: bold;
+   cursor: pointer;
 }
 
 .category-btn {
@@ -93,9 +99,18 @@ textarea {
    padding: 0.5rem 1rem;
 }
 
+.category-btn:hover {
+   background-color: var(--blue-category-hover);
+}
+
 .btn-purple {
    color: var(--white);
    background-color: var(--purple);
+}
+
+.btn-purple:hover {
+   color: var(--white-smoke);
+   background-color: var(--purple-hover);
 }
 
 .btn-dark-blue {
@@ -103,9 +118,48 @@ textarea {
    background-color: var(--dark-light-blue);
 }
 
+.btn-dark-blue:hover {
+   color: var(--white-smoke);
+   background-color: var(--dark-light-blue-hover);
+}
+
 .btn-red {
    color: var(--white);
    background-color: var(--red);
+}
+
+.btn-red:hover {
+   color: var(--white-smoke);
+   background-color: var(--red-hover);
+}
+
+.btn-blue {
+   color: var(--white-smoke);
+   background-color: var(--blue);
+}
+
+.btn-blue:hover {
+   color: var(--white-smoke);
+   background-color: var(--blue-hover);
+}
+
+.bullet {
+   width: 12px;
+   height: 12px;
+   margin: 0 1rem 0 0.2rem;
+   border-radius: 50%;
+}
+
+.bullet-orange {
+   background-color: var(--orange);
+}
+
+.bullet-purple {
+   background-color: var(--purple);
+}
+
+.bullet-blue {
+   background-color: var(--light-blue);
 }
 
 #active-category {
@@ -115,6 +169,11 @@ textarea {
 
 .title {
    color: var(--dark-light-blue);
+}
+
+.main-title {
+   color: var(--dark-light-blue);
+   padding: 1rem 0;
 }
 
 .secondary-text {
@@ -171,6 +230,12 @@ textarea {
    display: flex;
    flex-direction: column;
    gap: 0.8rem;
+   cursor: pointer;
+   overflow: hidden;
+}
+
+.feedback:hover .title {
+   color: var(--blue);
 }
 
 .feedback-title {
@@ -232,8 +297,10 @@ textarea {
 .custom-select-wrapper {
    display: flex;
    justify-content: space-between;
-   color: var(--white);
+   align-items: center;
+   color: var(--white-light-smoke);
    position: relative;
+   cursor: pointer;
 }
 
 .custom-select-wrapper label {
@@ -288,6 +355,10 @@ textarea {
 @media only screen and (min-width: 1280px) {
    body {
       max-width: 1280px;
-      margin: 2rem auto !important;
+      margin: 2rem auto;
+   }
+
+   .custom-select:hover {
+      color: var(--blue-grey);
    }
 }

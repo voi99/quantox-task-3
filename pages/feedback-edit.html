@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  <link rel="stylesheet" href="../shared.css">
-  <link rel="stylesheet" href="../css/feedback-new.css">
-  <link rel="stylesheet" href="../css/feedback-detail.css">
-  <link rel="stylesheet" href="../css/feedback-edit.css">
-    <link
+      <link
+         rel="icon"
+         type="image/png"
+         sizes="32x32"
+         href="./assets/favicon-32x32.png"
+      />
+      <link rel="stylesheet" href="../shared.css" />
+      <link rel="stylesheet" href="../css/feedback-new.css" />
+      <link rel="stylesheet" href="../css/feedback-detail.css" />
+      <link rel="stylesheet" href="../css/feedback-edit.css" />
+      <link
          rel="stylesheet"
          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
       />
@@ -18,15 +22,14 @@
          rel="stylesheet"
          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
       />
-  <script src="../src/EditFeedback.js" defer type="module"></script>
-  <script src="../src/Select.js" defer type="module"></script>
-  
+      <script src="../src/EditFeedback.js" defer type="module"></script>
+      <script src="../src/Select.js" defer type="module"></script>
 
-  <title>Frontend Mentor | Product feedback app</title>
-</head>
+      <title>Frontend Mentor | Product feedback app</title>
+   </head>
 
-<body>
-   <header class="header">
+   <body>
+      <header class="header">
          <div class="header-back secondary-text">
             <img src="../assets/shared/icon-arrow-left.svg" alt="" />
             Go Back
@@ -36,24 +39,32 @@
       <main class="main">
          <div class="card">
             <div class="edit-feedback-image"></div>
-            <h2 class="editing-feedback">Create New Feedback</h2>
-            <form action="" class="add-feedback-form">
+            <h2 class="editing-feedback main-title">Create New Feedback</h2>
+            <form action="" class="edit-feedback-form">
                <div class="form-feedback-description">
-                  <h4>Feedback Title</h4>
-                  <p>Add a short,descriptive headline</p>
-                  <input type="text" name="feedback-title" />
+                  <h3 class="title" class="title">Feedback Title</h3>
+                  <p class="secondary-text">Add a short,descriptive headline</p>
+                  <input type="text" name="feedback-title" required />
                </div>
                <div class="form-feedback-description">
-                  <h4>Category</h4>
-                  <p>Choose a category for your feedback</p>
-                  <div class="custom-select-wrapper">
+                  <h3 class="title">Category</h3>
+                  <p class="secondary-text">
+                     Choose a category for your feedback
+                  </p>
+                  <div
+                     class="custom-select-wrapper"
+                     data-id="select-for-category"
+                  >
                      <div class="custom-select">
                         <div class="selected-category">Feature</div>
                         <div class="arrow-sorting">
                            <i class="fas fa-angle-down fa-sm"></i>
                         </div>
                      </div>
-                     <div class="custom-select-dropdown hide">
+                     <div
+                        class="custom-select-dropdown hide"
+                        data-id="category-dropdown"
+                     >
                         <div
                            class="custom-select-dropdown-option"
                            data-id="feature"
@@ -88,40 +99,59 @@
                   </div>
                </div>
                <div class="form-feedback-description">
-                  <h4>Update Status</h4>
-                  <p>Change a category for your feedback</p>
-                  <div class="custom-select-wrapper">
+                  <h3 class="title">Update Status</h3>
+                  <p class="secondary-text">
+                     Change a category for your feedback
+                  </p>
+                  <div
+                     class="custom-select-wrapper"
+                     data-id="select-for-status"
+                  >
                      <div class="custom-select">
-                        <div class="selected-category">Planned</div>
+                        <div class="selected-status">Planned</div>
                         <div class="arrow-sorting">
                            <i class="fas fa-angle-down fa-sm"></i>
                         </div>
                      </div>
-                     <div class="custom-select-dropdown hide">
+                     <div
+                        class="custom-select-dropdown hide"
+                        data-id="status-dropdown"
+                     >
                         <div
                            class="custom-select-dropdown-option"
-                           data-id="feature"
-                           id="selected-category"
+                           data-id="suggestion"
+                           id="selected-status"
+                        >
+                           Suggestion
+                           <img src="../assets/shared/icon-check.svg" alt="" />
+                        </div>
+                        <div
+                           class="custom-select-dropdown-option"
+                           data-id="planned"
                         >
                            Planned
                            <img src="../assets/shared/icon-check.svg" alt="" />
                         </div>
-                        <div class="custom-select-dropdown-option" data-id="ui">
+                        <div
+                           class="custom-select-dropdown-option"
+                           data-id="in-progress"
+                        >
                            In-Progress
                            <img src="../assets/shared/icon-check.svg" alt="" />
                         </div>
-                        <div class="custom-select-dropdown-option" data-id="ux">
+                        <div
+                           class="custom-select-dropdown-option"
+                           data-id="live"
+                        >
                            Live
                            <img src="../assets/shared/icon-check.svg" alt="" />
                         </div>
-                        
-                        
                      </div>
                   </div>
                </div>
                <div class="form-feedback-description">
-                  <h4>Feedback Detail</h4>
-                  <p>
+                  <h3 class="title">Feedback Detail</h3>
+                  <p class="secondary-text">
                      Include any specific comments on what should be improved,
                      added, etc.
                   </p>
@@ -130,6 +160,7 @@
                      cols="30"
                      rows="5"
                      name="feedback-details"
+                     required
                   ></textarea>
                </div>
                <div class="actions">
@@ -139,12 +170,12 @@
                   <button class="btn btn-dark-blue cancel-btn" type="button">
                      Cancel
                   </button>
-                   <button class="btn btn-red delete-btn" type="button">
+                  <button class="btn btn-red delete-btn" type="button">
                      Delete
                   </button>
                </div>
             </form>
          </div>
       </main>
-</body>
-<html
+   </body>
+</html>

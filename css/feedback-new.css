@@ -36,6 +36,7 @@
 
 .arrow-sorting i {
    transition: all 0.2s ease-in;
+   color: var(--blue);
 }
 
 .actions {
@@ -49,4 +50,12 @@
 
 #selected-category img {
    display: inline-block;
+}
+
+.title {
+   margin-bottom: 0.2rem;
+}
+
+.secondary-text {
+   margin-top: 0;
 }

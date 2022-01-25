@@ -6,3 +6,7 @@
    background-image: url('../assets/shared/icon-edit-feedback.svg');
    background-size: contain;
 }
+
+#selected-status img {
+   display: inline-block;
+}

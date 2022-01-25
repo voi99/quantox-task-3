@@ -38,24 +38,32 @@
       <main class="main">
          <div class="card">
             <div class="new-feedback-image"></div>
-            <h2>Create New Feedback</h2>
+            <h2 class="main-title">Create New Feedback</h2>
             <form action="" class="add-feedback-form">
                <div class="form-feedback-description">
-                  <h4>Feedback Title</h4>
-                  <p>Add a short,descriptive headline</p>
-                  <input type="text" name="feedback-title" />
+                  <h3 class="title">Feedback Title</h3>
+                  <p class="secondary-text">Add a short,descriptive headline</p>
+                  <input type="text" name="feedback-title" required />
                </div>
                <div class="form-feedback-description">
-                  <h4>Category</h4>
-                  <p>Choose a category for your feedback</p>
-                  <div class="custom-select-wrapper">
+                  <h3 class="title">Category</h3>
+                  <p class="secondary-text">
+                     Choose a category for your feedback
+                  </p>
+                  <div
+                     class="custom-select-wrapper"
+                     data-id="select-for-category"
+                  >
                      <div class="custom-select">
                         <div class="selected-category">Feature</div>
                         <div class="arrow-sorting">
                            <i class="fas fa-angle-down fa-sm"></i>
                         </div>
                      </div>
-                     <div class="custom-select-dropdown hide">
+                     <div
+                        class="custom-select-dropdown hide"
+                        data-id="category-dropdown"
+                     >
                         <div
                            class="custom-select-dropdown-option"
                            data-id="feature"
@@ -90,8 +98,8 @@
                   </div>
                </div>
                <div class="form-feedback-description">
-                  <h4>Feedback Detail</h4>
-                  <p>
+                  <h3 class="title">Feedback Detail</h3>
+                  <p class="secondary-text">
                      Include any specific comments on what should be improved,
                      added, etc.
                   </p>
@@ -100,6 +108,7 @@
                      cols="30"
                      rows="5"
                      name="feedback-details"
+                     required
                   ></textarea>
                </div>
                <div class="actions">
