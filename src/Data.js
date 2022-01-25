@@ -70,7 +70,16 @@ export const fillFeedbacks = async (category, sortBy = 'mostUpvotes') => {
    $$('.upvotes-wrapper').forEach((upvote) => {
       upvote.addEventListener('click', (e) => {
          e.stopPropagation()
-         console.log(e)
+         if (e.currentTarget.classList.contains('liked')) {
+            e.currentTarget.classList.remove('liked')
+
+            e.currentTarget.children[1].innerHTML =
+               +e.currentTarget.children[1].textContent - 1
+         } else {
+            e.currentTarget.classList.add('liked')
+            e.currentTarget.children[1].innerHTML =
+               +e.currentTarget.children[1].textContent + 1
+         }
       })
    })
 }
@@ -79,6 +88,7 @@ export function feedbackHTMLBuilder(feedback, arrowImg, commentsImg, border) {
    return `<div class="card feedback" data-id="${feedback.id}">
                ${border ? "<div class='top-border'></div>" : ''}
                ${border ? `${statusInfo(feedback)}` : ''}
+               <div class="feedback-text-wrapper">
                <h3 class="title feedback-title">${feedback.title}</h3>
                <p class="feedback-text secondary-text">
                   ${feedback.description}
@@ -87,7 +97,8 @@ export function feedbackHTMLBuilder(feedback, arrowImg, commentsImg, border) {
                   feedback.category.charAt(0).toUpperCase() +
                   feedback.category.slice(1)
                }</button>
-               <div class="feedback-footer">
+               </div>
+            
                   <div class="upvotes-wrapper">
                      <img src="${arrowImg}" alt="" />
                      <span class="votes">${feedback.upvotes}</span>
@@ -98,7 +109,7 @@ export function feedbackHTMLBuilder(feedback, arrowImg, commentsImg, border) {
                         feedback.comments ? feedback.comments.length : 0
                      }</span>
                   </div>
-               </div>
+               
             </div>`
 }
 
@@ -115,7 +126,7 @@ function statusInfo({ status }) {
       text = 'Live'
       bulletColor = 'blue'
    }
-   return `<div class='status-info'><div class='bullet bullet-${bulletColor}'></div><span>${text}</span></div>`
+   return `<div class='status-info'><div class='bullet bullet-${bulletColor}'></div><span class='secondary-text'>${text}</span></div>`
 }
 
 function openFeedbackDetailPage(id) {

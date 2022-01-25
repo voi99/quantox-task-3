@@ -1,4 +1,5 @@
 import { animateCSS } from './Animate.js'
+import { fetchData } from './Data.js'
 
 const $ = (e) => document.querySelector(e)
 
@@ -31,3 +32,17 @@ async function toogleIcon(target) {
    }
    flag = !flag
 }
+
+;(async () => {
+   const { productRequests } = await fetchData()
+   const plannedFeedbacks = productRequests.filter(
+      (req) => req.status === 'planned'
+   )
+   $('.no-planned-status').innerHTML = plannedFeedbacks.length
+   const inProgressFeedbacks = productRequests.filter(
+      (req) => req.status === 'in-progress'
+   )
+   $('.no-in-progress-status').innerHTML = inProgressFeedbacks.length
+   const liveFeedbacks = productRequests.filter((req) => req.status === 'live')
+   $('.no-live-status').innerHTML = liveFeedbacks.length
+})()

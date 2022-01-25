@@ -93,9 +93,30 @@
    margin-top: 0.2rem;
 }
 
+.feedback {
+   display: grid;
+   grid-template-rows: auto auto;
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-areas: 'status status' 'text text' 'upvotes comments';
+}
+
 .status-info {
    display: flex;
    align-items: center;
+   grid-area: status;
+}
+.feedback-text-wrapper {
+   grid-area: text;
+}
+
+.upvotes-wrapper {
+   grid-area: upvotes;
+   justify-self: flex-start;
+}
+
+.comments-wrapper {
+   grid-area: comments;
+   justify-content: flex-end;
 }
 
 @media only screen and (min-width: 768px) {

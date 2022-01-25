@@ -66,9 +66,17 @@ const COMMENTS_IMG_PATH = '../assets/shared/icon-comments.svg'
       })
    )
 
-   $$('.main > *').forEach((child) => child.classList.add('hide'))
-   const active = $('#active-status').classList[0]
-   $(`[data-id=${active}]`).classList.remove('hide')
+   if (window.innerWidth < 768) {
+      $$('.main > *').forEach((child) => child.classList.add('hide'))
+      const active = $('#active-status').classList[0]
+      $(`[data-id=${active}]`).classList.remove('hide')
+   }
+
+   $$('.feedback').forEach((feedback) =>
+      feedback.addEventListener('click', (e) => {
+         window.location.href = `./feedback-detail.html?id=${e.currentTarget.dataset.id}`
+      })
+   )
 })()
 
 window.addEventListener('resize', () => {

@@ -7,7 +7,7 @@ const ARROW_IMG_PATH = '../assets/shared/icon-arrow-up.svg'
 const COMMENTS_IMG_PATH = '../assets/shared/icon-comments.svg'
 
 $('.header-back').addEventListener('click', () => {
-   window.location.href = `../index.html`
+   window.history.back()
 })
 
 const getId = () => {
@@ -212,13 +212,17 @@ $('.add-comment-form').addEventListener('submit', async (e) => {
               content: text,
               user: data.currentUser,
            })
-      : (data.productRequests.filter((req) => req.id === +id)[0]['comments'] = {
-           id: 1,
-           content: text,
-           user: data.currentUser,
-        })
+      : (data.productRequests.filter((req) => req.id === +id)[0]['comments'] = [
+           {
+              id: 1,
+              content: text,
+              user: data.currentUser,
+           },
+        ])
    localStorage.setItem('data', JSON.stringify(data))
    loadFeedbackDetails(false)
+   $('.add-comment-text').value = ''
+   $('.left-characters').innerHTML = '250 Characters left'
 })
 
 $('.edit-btn').addEventListener('click', () => {

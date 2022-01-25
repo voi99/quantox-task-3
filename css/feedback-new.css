@@ -59,3 +59,16 @@
 .secondary-text {
    margin-top: 0;
 }
+
+@media only screen and (min-width: 768px) {
+   .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row-reverse;
+   }
+
+   .cancel-btn {
+      margin-left: auto;
+   }
+}

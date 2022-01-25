@@ -72,6 +72,7 @@
 
 .roadmap-header-title {
    color: var(--dark-light-blue);
+   margin: 0;
 }
 
 .roadmap-header-link {
@@ -136,6 +137,27 @@
 
 #active-sorting img {
    display: inline-block;
+}
+
+.feedback {
+   display: grid;
+   grid-template-rows: auto auto;
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-areas: 'text text' 'upvotes comments';
+}
+
+.feedback-text-wrapper {
+   grid-area: text;
+}
+
+.upvotes-wrapper {
+   grid-area: upvotes;
+   justify-self: flex-start;
+}
+
+.comments-wrapper {
+   grid-area: comments;
+   justify-content: flex-end;
 }
 
 @media only screen and (min-width: 768px) {
@@ -214,6 +236,37 @@
 
    .roadmap {
       padding: 0.8rem 1.5rem;
+   }
+
+   .upvotes-wrapper {
+      flex-direction: column;
+      gap: 0.5rem;
+   }
+
+   .feedback {
+      display: grid;
+      grid-template-areas: 'upvotes text comments' '. text comments';
+      grid-template-columns: 0.2fr 2fr 0.2fr;
+      justify-items: center;
+   }
+
+   .feedback-text-wrapper {
+      grid-area: text;
+      width: 100%;
+   }
+
+   .upvotes-wrapper {
+      grid-area: upvotes;
+   }
+
+   .comments-wrapper {
+      grid-area: comments;
+   }
+
+   .upvotes-wrapper {
+      width: 2.5rem;
+      height: 4rem;
+      justify-self: center;
    }
 }
 

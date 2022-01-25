@@ -234,6 +234,12 @@ textarea {
    overflow: hidden;
 }
 
+.feedback-text-wrapper {
+   display: flex;
+   flex-direction: column;
+   gap: 0.8rem;
+}
+
 .feedback:hover .title {
    color: var(--blue);
 }
@@ -250,10 +256,12 @@ textarea {
    align-self: flex-start;
 }
 
-.feedback-footer {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
+.feedback .category-btn {
+   cursor: default;
+}
+
+.feedback .category-btn:hover {
+   background-color: var(--white-smoke);
 }
 
 .upvotes-wrapper {
@@ -263,6 +271,26 @@ textarea {
    background-color: var(--white-smoke);
    padding: 0.2rem 0.6rem;
    border-radius: 0.6rem;
+   cursor: pointer;
+   height: 2.5rem;
+   width: 3.5rem;
+}
+
+.upvotes-wrapper:hover {
+   background-color: var(--blue-category-hover);
+   color: var(--dark-light-blue);
+}
+
+.liked {
+   background-color: var(--blue);
+}
+
+.liked .votes {
+   color: var(--white);
+}
+
+.liked img {
+   filter: brightness(0) invert(1);
 }
 
 .upvotes-wrapper > *,
@@ -276,7 +304,8 @@ textarea {
    align-items: center;
 }
 
-.feedback-footer span {
+.votes,
+.comments-no {
    font-weight: bold;
    color: var(--dark-light-blue);
 }
@@ -333,6 +362,10 @@ textarea {
    padding: 0.8rem 1.5rem;
 }
 
+.custom-select-dropdown-option:hover {
+   color: var(--purple);
+}
+
 .custom-select-dropdown-option:not(:last-child) {
    border-bottom: 0.1px solid var(--blue-grey-transparent);
 }
@@ -349,6 +382,10 @@ textarea {
    body {
       margin: 2rem 2rem;
       overflow-x: unset;
+   }
+   .upvotes-wrapper {
+      width: 4rem;
+      height: 2rem;
    }
 }
 

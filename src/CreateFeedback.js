@@ -20,10 +20,11 @@ $('.add-feedback-form').addEventListener('submit', async (e) => {
       title,
       category,
       upvotes: 0,
-      status: 'planned',
+      status: 'suggestion',
       description: details,
    }
    addNewFeedback(newFeedback)
+   window.location.href = '../index.html'
 })
 
 $('.cancel-btn').addEventListener('click', () => {
