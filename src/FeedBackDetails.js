@@ -225,6 +225,16 @@ $('.add-comment-form').addEventListener('submit', async (e) => {
    $('.left-characters').innerHTML = '250 Characters left'
 })
 
+$('textarea').addEventListener('blur', (e) => {
+   if (e.currentTarget.value.length <= 0) {
+      $(`span[data-id=${e.currentTarget.dataset.id}`).classList.remove('hide')
+      e.currentTarget.classList.add('error-input')
+   } else {
+      $(`span[data-id=${e.currentTarget.dataset.id}`).classList.add('hide')
+      e.currentTarget.classList.remove('error-input')
+   }
+})
+
 $('.edit-btn').addEventListener('click', () => {
    const id = getId()
    window.location.href = `./feedback-edit.html?id=${id}`

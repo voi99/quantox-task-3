@@ -43,7 +43,15 @@
                <div class="form-feedback-description">
                   <h3 class="title">Feedback Title</h3>
                   <p class="secondary-text">Add a short,descriptive headline</p>
-                  <input type="text" name="feedback-title" required />
+                  <input
+                     type="text"
+                     name="feedback-title"
+                     required
+                     data-id="input-title"
+                  />
+                  <span class="error hide" data-id="input-title"
+                     >Can't be empty</span
+                  >
                </div>
                <div class="form-feedback-description">
                   <h3 class="title">Category</h3>
@@ -109,7 +117,11 @@
                      rows="5"
                      name="feedback-details"
                      required
+                     data-id="input-details"
                   ></textarea>
+                  <span class="error hide" data-id="input-details"
+                     >Can't be empty</span
+                  >
                </div>
                <div class="actions">
                   <button class="btn btn-purple add-feedback-btn" type="submit">

@@ -374,6 +374,14 @@ textarea {
    display: none;
 }
 
+.error-input {
+   border-color: var(--red);
+}
+
+.error {
+   color: var(--red);
+}
+
 @media only screen and (min-width: 768px) {
    html {
       overflow-x: unset;

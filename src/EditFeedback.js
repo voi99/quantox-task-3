@@ -54,6 +54,26 @@ $('.edit-feedback-form').addEventListener('submit', async (e) => {
    window.location.replace(`./feedback-detail.html?id=${id}`)
 })
 
+$('input').addEventListener('blur', (e) => {
+   if (e.currentTarget.value.length <= 0) {
+      $(`span[data-id=${e.currentTarget.dataset.id}`).classList.remove('hide')
+      e.currentTarget.classList.add('error-input')
+   } else {
+      $(`span[data-id=${e.currentTarget.dataset.id}`).classList.add('hide')
+      e.currentTarget.classList.remove('error-input')
+   }
+})
+
+$('textarea').addEventListener('blur', (e) => {
+   if (e.currentTarget.value.length <= 0) {
+      $(`span[data-id=${e.currentTarget.dataset.id}`).classList.remove('hide')
+      e.currentTarget.classList.add('error-input')
+   } else {
+      $(`span[data-id=${e.currentTarget.dataset.id}`).classList.add('hide')
+      e.currentTarget.classList.remove('error-input')
+   }
+})
+
 $('.cancel-btn').addEventListener('click', () => history.back())
 
 $('.delete-btn').addEventListener('click', async () => {
